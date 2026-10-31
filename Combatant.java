@@ -4,6 +4,7 @@ public class Combatant{
     Combatant prev=null;
     Combatant next=null;
     String name;
+    double[] position = {0,0};
     static boolean orderTied = false;
     static Combatant head;
     static Combatant tail;
@@ -60,6 +61,14 @@ public class Combatant{
         this.HP = HP;
         this.name = name;
         this.isAlive = true;
+    }
+
+    public void setPosition(double[] newPosition){
+        this.position = newPosition;
+    }
+
+    public double[] getPosition(){
+        return this.position;
     }
 
     public void takeDamage(int amount){
