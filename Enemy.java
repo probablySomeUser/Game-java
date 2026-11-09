@@ -9,6 +9,7 @@ public class Enemy extends Combatant{
         String name = "Enemy " +enemiesRemaining;
         super(8, name);
         enemies.add(this);
+        spawnPosition();
     }
 
     void takeTurn(){

@@ -14,6 +14,7 @@ public class Player extends Combatant{
         playersRemaining += 1;
         super(10,name);
         players.add(this);
+        spawnPosition();
     }
 
     void takeTurn(){
