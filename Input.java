@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Input{
-    Scanner reader = new Scanner(System.in);
+    public Scanner reader = new Scanner(System.in);
 
     Input(Scanner scanner){
         this.reader = scanner;
@@ -13,7 +13,7 @@ public class Input{
         
     }
 
-    int getInt(int min, int max, Scanner scanner){
+    public int getInt(int min, int max, Scanner scanner){
         int answer;
         while (true) {
             try{
@@ -34,11 +34,11 @@ public class Input{
         }
     }
 
-    int getInt(int min, int max){
+    public int getInt(int min, int max){
         return getInt(min, max,reader);
     }
     
-    int getOption(ArrayList<?> options,Scanner scanner){
+    public int getOption(ArrayList<?> options,Scanner scanner){
         if(options.size()==0){
             return -1;
         }
@@ -50,7 +50,7 @@ public class Input{
         return answer;
     }
 
-    int getOption(ArrayList<?> options){
+    public int getOption(ArrayList<?> options){
         return getOption(options,reader);
     }
 }

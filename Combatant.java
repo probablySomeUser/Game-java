@@ -1,10 +1,10 @@
 public class Combatant{
-    int HP;
-    boolean isAlive=true;
-    Combatant prev=null;
-    Combatant next=null;
-    String name;
-    double[] position;
+    private int HP;
+    protected  boolean isAlive=true;
+    protected  Combatant prev=null;
+    protected Combatant next=null;
+    private String name;
+    private double[] position;
     protected static Board board;
 
     static boolean orderTied = false;
@@ -15,24 +15,24 @@ public class Combatant{
         board = newBoard;
     }
 
-    void setPrev(Combatant prev){
+    public void setPrev(Combatant prev){
         this.prev = prev;
     }
 
-    void setNext(Combatant next){
+    public void setNext(Combatant next){
         this.next = next;
     }
 
-    Combatant getNext(){
+    public Combatant getNext(){
         return this.next;
     }
 
-    void remove(){
+    public void remove(){
         prev.next = this.next;
         next.prev = this.prev;
     }
 
-    static void addToOrder(Combatant addition){
+    public static void addToOrder(Combatant addition){
         if(head==null){
             head = addition;
             tail = addition;
@@ -47,7 +47,7 @@ public class Combatant{
         }
     }
 
-    static void tieOrder(){
+    public static void tieOrder(){
         if(tail==null || orderTied){
             return;
         } else{
@@ -126,11 +126,11 @@ public class Combatant{
         return this.name;
     }
 
-    void takeTurn(){
+    public void takeTurn(){
         // Will be overridden in subclasses
     }
 
-    void die(){
+    public void die(){
         // Will be overriden in subclasses
     }
 }

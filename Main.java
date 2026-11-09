@@ -11,7 +11,7 @@ public class Main{
 
     }
 
-    static Combatant setUpGame(){
+    private static Combatant setUpGame(){
         Board board = new Board();
         Combatant.setBoard(board);
         Player player1 = new Player("Player 1");
@@ -26,26 +26,23 @@ public class Main{
         return Combatant.head;
     }
 
-    static String mainLoop(Combatant starter){
+    private static String mainLoop(Combatant starter){
         Combatant currentCombatant = starter;
         while (Player.playersRemaining() != 0 && Enemy.enemiesRemaining() != 0) {
             currentCombatant.takeTurn();
             currentCombatant = currentCombatant.getNext();
         }
-        if(Enemy.enemiesRemaining == 0){
+        if(Enemy.enemiesRemaining() == 0){
             return "The players";
         } else{
             return "The enemies";
         }
     }
 
-    static void endGame(String winner){
+    private static void endGame(String winner){
         System.out.println(winner + " wins");
     }
 
-    void addToOrder(Combatant latest){
-        
-    }
     public static void main(){
         runGame();
     }

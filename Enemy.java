@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Enemy extends Combatant{
-    static int enemiesRemaining = 0;
-    static ArrayList<Enemy> enemies = new ArrayList<>();
+    private static int enemiesRemaining = 0;
+    private static ArrayList<Enemy> enemies = new ArrayList<>();
 
     Enemy(){
         enemiesRemaining += 1;
@@ -12,14 +12,14 @@ public class Enemy extends Combatant{
         spawnPosition();
     }
 
-    void takeTurn(){
+    public void takeTurn(){
         Combatant current = this.next;
         System.out.println("It is " + this + " turn");
         Player target = Player.getPlayers().get(0);
         attack(target);
     }
 
-    void attack(Player player){
+    private void attack(Player player){
         System.out.println(this + " attacks " + player);
         player.takeDamage(3);
         int playerHP = player.getHP();
@@ -28,7 +28,7 @@ public class Enemy extends Combatant{
         } 
     }
 
-    void die(){
+    public void die(){
         enemiesRemaining -= 1;
         System.out.println(this + " died");
         this.remove();

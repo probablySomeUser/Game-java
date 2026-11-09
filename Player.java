@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Player extends Combatant{
     private static Input input = new Input();
-    static int playersRemaining = 0;
-    static ArrayList<Player> players = new ArrayList<Player>();
+    private static int playersRemaining = 0;
+    private static ArrayList<Player> players = new ArrayList<Player>();
 
     public static void setInput(Input reader){
         input = reader;
@@ -17,7 +17,7 @@ public class Player extends Combatant{
         spawnPosition();
     }
 
-    void takeTurn(){
+    public void takeTurn(){
         ArrayList<String> options = new ArrayList<String>();
         options.add("Attack someone");
         int optionChosen = input.getOption(options);
@@ -33,22 +33,22 @@ public class Player extends Combatant{
         
     }
 
-    void attack(Enemy enemy){
+    private void attack(Enemy enemy){
         int damage = 3;
         enemy.takeDamage(damage);
     }
 
-    void die(){
+    public void die(){
         playersRemaining -= 1;
         this.remove();
         players.remove(this);
     }
 
-    static ArrayList<Player> getPlayers(){
+    public static ArrayList<Player> getPlayers(){
         return players;
     }
 
-    static int playersRemaining(){
+    public static int playersRemaining(){
         return playersRemaining;
     }
 }
